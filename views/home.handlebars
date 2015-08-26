@@ -1,0 +1,88 @@
+<html>
+	
+	<head>
+	<title> U B E R </title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel='stylesheet' type='text/css' href='css/uberdriver.css'>
+	</head>
+
+	<body>
+
+
+
+
+	
+
+
+	<div class='container'>
+
+		<div class='row'>
+		<img src='images/uberlogo.png' id='logo'>
+			<div class="btn-group" id='options'>
+			  <button type="button" class="btn btn-primary">Agent Chat </button>
+			  <button type="button" class="btn btn-primary">Call Agent</button>
+			  <button type="button" class="btn btn-primary">Post an issue</button>
+			</div>
+
+		</div>
+
+		<div class='row'>
+			<div class="btn-group" id='tabs'>
+			  <button type="button" class="btn btn-primary">FAQ </button>
+			  <button type="button" class="btn btn-primary">Documents</button>
+			  <button type="button" class="btn btn-primary">History</button>
+			</div>
+			
+			<div class='col-md-8' id='tabspace'>
+
+				<div class="panel-group" id="accordion">
+				 	{{#each Questions}}
+			        <div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{Question}}</a>
+			                </h4>
+			            </div>
+			            <div id="collapse" class="panel-collapse collapse in">
+			                <div class="panel-body">
+			                    <p>{{Answer}}<a href="{{link}}" target="_blank">find out how...</a></p>
+			                </div>
+			            </div>
+			        </div>
+			       {{/each}}
+				</div>
+		   </div>
+
+
+
+
+
+			<div class='col-md-8' id='profile'>
+				<h2><span class='label'> Uber Profile </span></h2>
+				<br>
+				<h6> Ipsum Lorem , Cape Town</h6>				
+				<h6> Vehicle: Toyota Corolla xls </h6>
+				<h6> ID No: 8539230985081</h6>
+				<h6> Rating : 4.6 <a href='#'>...see ratings</a> </h6>
+				<br>
+				<h5><span class='label'> No issues in progress </span></h5>
+				<br>
+				<h5><span class='label'> All documentation complete </span></h5>
+
+
+			</div>
+		</div>
+	</div>
+
+	
+
+
+
+
+	</body>
+</html>
+
