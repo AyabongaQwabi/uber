@@ -12,7 +12,7 @@
 
 
             myConnection = require('express-myconnection');
-            //database = require('./database');
+            
             var dbOptions = {
                 host : "localhost",
                 user : "root",
@@ -30,14 +30,14 @@
             app.use(bodyParser.urlencoded({ extended: false }))
             app.use(bodyParser.json())
             app.use(cookieParser());
-            app.use(Exsession({secret:'veryfunnysecret'}));
+            app.use(Exsession({secret:'verysecretsecret'}));
 
 
 
 
             app.get('/',function(req,res){
-            		console.log(__dirname)
-                    res.render('login',{layout:false})
+            	
+                    res.render('home',{layout:false})
 
             })
 

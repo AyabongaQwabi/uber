@@ -1,0 +1,88 @@
+body{
+	
+	overflow:hidden;
+	
+	background: #D9D9DE;
+}
+
+
+#options .btn-primary{
+	
+	color:white;
+	background: #09091A;
+	border-radius:5px;
+	width:15%;
+	float:left;
+	border:1px solid black;
+	outline: none;
+	margin-left: 0%;
+	margin-top: 1%;
+	box-shadow:1px 1px 1px 1px black;
+}
+#options{
+	margin-left: 45%;
+	margin-top: -5%;
+	width:100%;
+
+}
+
+#logo{
+	
+	max-height: 20%;
+	max-width: 30%;
+	float:left;
+}
+
+#tabspace{
+	width:70%;
+	height:60%;
+	border:1px solid #09091A;;
+	background: #09091A;
+	padding-top:2%;
+	
+
+}
+#profile{
+	width:30%;
+	height:60%;
+	border:1px solid #151525;
+	background: #151525;
+	
+
+}
+#tabs{
+	width:100%;
+	margin-top: 7%;
+
+}
+#tabs .btn-primary{
+	
+	color:white;
+	background: #09091A;
+	border-radius:5px;
+	width:15%;
+	float:left;
+	border:1px solid black;
+	outline: none;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+	box-shadow:1px 1px 1px 1px black;
+}
+.label{
+	background:#09091A;
+	color:#D2F1F7;
+}
+h6{
+	color:#D2F1F7;
+}
+.panel{
+	background:#09091A;
+	color:#D2F1F7;
+}
+.panel-default .panel-heading{
+	background: #222231;
+		color:#D2F1F7;
+		padding:2%;
+		border:1px solid #222231;
+		box-shadow: 1px 1px 1px 2px #222231;
+}
