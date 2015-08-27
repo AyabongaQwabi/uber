@@ -28,6 +28,7 @@
 				  <button type="button" class="btn btn-primary">Agent Chat </button>
 				  <button type="button" class="btn btn-primary">Call Agent</button>
 				  <button type="button" class="btn btn-primary">Post an issue</button>
+				  <button type="button" class="btn btn-primary" onclick="window.location.href='/logout'">Logout</button>
 				</div>
 
 			</div>
@@ -50,10 +51,12 @@
 
 				<div class='col-md-8' id='profile'>
 					<h2><span class='label'> Uber Profile </span></h2>
-					<br>
-					<h6> Mark Winston , Cape Town</h6>				
-					<h6> Vehicle: Toyota Corolla xls </h6>
-					<h6> ID No: 8539230985081</h6>
+					<br> 
+					<h6> {{driverData.name}} {{driverData.last_name}} , {{driverData.city}}</h6>
+					<h6> Email: {{driverData.email_address}}</h6>				
+					<h6> Vehicle: {{driverData.vehicle}} </h6>
+					<h6> ID No: {{driverData.id_number}}</h6>
+					<h6> Licence No: {{driverData.license_number}}</h6>					
 					<h6> Rating :<div class="rating">
 					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 					</div></h6>

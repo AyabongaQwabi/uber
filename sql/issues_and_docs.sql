@@ -1,4 +1,5 @@
-SELECT type, url from documents where driver_id = 1;
-SELECT name, status from issues where driver_id = 1;
 
-SELECT documents.type, documents.url, issues.issue,issues.status FROM  documents, issues WHERE documents.driver_id = driver.id;
+SELECT driver.name,issues.issue,issues.status, documents.type,documents.url 
+FROM driver,issues,documents
+WHERE issues.driver_id = driver.id
+AND documents.driver_id = driver.id;
