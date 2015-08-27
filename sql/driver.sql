@@ -7,7 +7,4 @@ id_number int(20),
 license_number varchar(30),
 city varchar(50),
 primary key(id)
-);
-
-ALTER TABLE driver
-ADD vehicle varchar(100);
+)
