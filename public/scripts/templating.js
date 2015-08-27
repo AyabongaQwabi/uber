@@ -12,7 +12,7 @@ function templateDocumentsSection(){
 
 function templateFaqsSection(){
 	console.log('function execute')
-	var questions = [{question:'Client left valuable in car , what do I do',answer:'Complete the left valuables form and drop the valuable at the center'},{question:'Client left valuable in car , what do I do',answer:'Complete the left valuables form and drop the valuable at the center of all peoples places tonight'},{question:'I have an item that was  left valuable in car , what do I do',answer:'Complete the left valuables form and drop of the day at the valuable at the center'},{question:'What if the sun left valuable in car , what do I do',answer:'Complete the left valuables form and drop the valuable at the center'},{question:'Client left valuable in car , what do I do',answer:'Complete the left valuables form and drop the valuable at the center'}]
+	var questions = [{num:1,question:'Client left valuable in car , what do I do',answer:'Complete the left valuables form and drop the valuable at the center'},{question:'Do I need to have a radio to be an UBER driver ?',answer:'No you do not really need a radio to be anuber driver '},{question:'I was robbed by a client ',answer:'Though it may be rare it does happen . Follow the followung procudure to resolve this issue'},{question:'Passenger left messy stuff in my car ?',answer:'We all hate it when our customers puke or leave dirty substances on our cars .This can be resolved by following..'},{question:'Client left valuable in car , what do I do',answer:'Complete the left valuables form and drop the valuable at the center'}]
 	var faqsHtml = $('#faqs-html').html();
 	var faqsTemplate = Handlebars.compile(faqsHtml);
 	var newhtml = faqsTemplate({Questions:questions});

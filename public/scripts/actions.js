@@ -1,15 +1,12 @@
-$(document).ready(function(){
-
-	$('.more').click(function(){
-		
-		console.log($(this).text())
-		
-		$(this).parents().eq(3).animate({height:'90%'})
-		if($(this).text()=='more'){
-			$(this).text('close')
+function expandThis(id){
+	console.log(id)
+		id='#'+id
+		$(id).parents().eq(3).animate({height:'90%'})
+		if($(id).text()=='more'){
+			$(id).text('close')
 		}
 		else{
-			$(this).text('more')
+			$(id).text('more')
 		}
 		
 		$(".panel-group").children().each(function(child){
@@ -29,5 +26,4 @@ $(document).ready(function(){
 			console.log('height:'+height_pct+'%\n\n')
 		})
 		console.log('-----------------------------------------------------------')
-	})
-})
+}
