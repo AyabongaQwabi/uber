@@ -35,24 +35,34 @@ body{
 
 #tabspace{
 	width:70%;
-	height:60%;
+	height:75%;
 	border:1px solid #09091A;;
 	background: #09091A;
 	padding-top:2%;
-	
+	overflow:scroll;
 
 }
 #profile{
 	width:30%;
-	height:60%;
+	height:75%;
 	border:1px solid #151525;
-	background: #151525;
+	background: #222231;
 	
 
 }
+.rating{
+	display: inline;
+}
+.more{
+	color:white;
+	background:  #151525;
+	border-radius:5px;
+	width:10%;
+	box-shadow:1px 1px 1px 1px black;
+}
 #tabs{
 	width:100%;
-	margin-top: 7%;
+	margin-top: 3%;
 
 }
 #tabs .btn-primary{
@@ -82,7 +92,41 @@ h6{
 .panel-default .panel-heading{
 	background: #222231;
 		color:#D2F1F7;
-		padding:2%;
+		padding:1%;
 		border:1px solid #222231;
 		box-shadow: 1px 1px 1px 2px #222231;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 1px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #D2F1F7;
+  border: 1px solid #D2F1F7;
+  border-radius: 20px;
+ 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #D2F1F7;
+}
+::-webkit-scrollbar-track {
+  background: #09091A;
+  border: 1px solid #09091A;
+  border-radius: 18px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #000000;
+}
+::-webkit-scrollbar-track:active {
+  background: #ffffff;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
