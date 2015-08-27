@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <title>Uber</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <script type='text/javascript' src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <link rel="stylesheet" href="css/registration.css">
 </head>
 
@@ -60,8 +59,16 @@
                         <!-- Name -->
                         <label class="control-label" for="City">City</label>
                         <div class="controls">
-                            <input type="text" id="licence" name="City" placeholder="" class="input-xlarge">
+                            <input type="text" id="city" name="city" placeholder="" class="input-xlarge">
                             <p class="help-block">Please provide your location</p>
+                        </div>
+                    </div>
+                     <div class="control-group">
+                        <!-- Name -->
+                        <label class="control-label" for="vehicle">Vehicle</label>
+                        <div class="controls">
+                            <input type="text" id="vehicle" name="vehicle" placeholder="" class="input-xlarge">
+                            <p class="help-block">type of car you drive</p>
                         </div>
                     </div>
                     <div class="control-group">
@@ -95,14 +102,17 @@
                             <input type="checkbox" class="terms">I agree with terms</input>
                         </div>
                     </div>
-                    <div class="control-group">
-                        <!-- Button -->
-                        <div class="controls">
-                            <button class="btn btn-success">Register</button>
-                        </div>
-                    </div>
+                    
             </fieldset>
         </form>
+        <div class="control-group">
+                        <!-- Button -->
+                        <div class="controls">
+                            <button class="btn btn-default" id='cancel'>Cancel</button>
+                            <button class="btn btn-default" id='done'>Register</button>
+                        </div>
+                    </div>
+        <script src="scripts/register.js"></script>
         </div>
 </body>
 

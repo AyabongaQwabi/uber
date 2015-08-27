@@ -43,6 +43,7 @@
 	                        connection.connect();
 	                        connection.query("select * from drivers where username = ?",req.session.username,function(err,results){
                                     res.render('home',{
+                                    	layout:false,
                                         driverData :results,
                                         username:req.session.username,
                                         userEntryLevel:req.session.userEntryLevel,
@@ -57,13 +58,18 @@
             })
 
 
-
+			app.get('/logout',function(req,res){
+                req.session.destroy(function(){
+                        res.redirect('/login')
+                })
+            })
             app.get('/register',function(req,res){
                     res.render('registration',{
                     	layout:false
                     })
             })
             app.post('/register',function(req,res){
+            	    console.log('USER POSTED ON REGSSS')
                     var connection = mysql.createConnection(dbOptions)
                     console.log("REGISTER -->"+JSON.stringify(req.body))
                     connection.query('select * from driver',function(err,results){
@@ -72,12 +78,12 @@
                                     var dat={}
                                     dat['username'] = req.body.username
                                     dat['name'] = req.body.name
-                                    dat['email'] =req.body.email
+                                    dat['email_address'] =req.body.email
                                     dat['last_name'] = req.body.surname
-                                    dat['id_no'] = req.body.id_no
-                                    dat['license_no'] = req.body.licence
-                                    dat['city'] = req.body.username
-                                    dat['vehicle'] = req.body.username
+                                    dat['id_number'] = req.body.id_no
+                                    dat['license_number'] = req.body.licence
+                                    dat['city'] = req.body.city
+                                    dat['vehicle'] = req.body.vehicle
                                     console.log('encrypting..')
                                     var hashed = encrypt.hashSync(req.body.password_confirm,11)
                                     dat['password']= hashed;
@@ -106,12 +112,12 @@
                                     var dat={}
                                     dat['username'] = req.body.username
                                     dat['name'] = req.body.name
-                                    dat['email'] =req.body.email
+                                    dat['email_address'] =req.body.email
                                     dat['last_name'] = req.body.surname
-                                    dat['id_no'] = req.body.id_no
-                                    dat['license_no'] = req.body.licence
-                                    dat['city'] = req.body.username
-                                    dat['vehicle'] = req.body.username
+                                    dat['id_number'] = req.body.id_no
+                                    dat['license_number'] = req.body.licence
+                                    dat['city'] = req.body.city
+                                    dat['vehicle'] = req.body.vehicle
                                     console.log('encrypting..')
                                     var hashed = encrypt.hashSync(req.body.password_confirm,11)
                                     dat['password']= hashed;
@@ -136,7 +142,7 @@
            app.post('/login',function(req,res){
                     
                    var connection = mysql.createConnection(dbOptions)
-                    connection.query('select * from drivers',function(err,results){
+                    connection.query('select * from driver',function(err,results){
                         console.log("ERR : "+err)
                         var Found=false;
                         console.log("\n\nRESULTS:"+results);
@@ -147,38 +153,42 @@
                             var clientPassword =req.body.password;
 
                             var correctPassword = encrypt.compareSync(clientPassword,hashedPassword)
-                            
-                            if(result.username==req.body.name && correctPassword)
-                            {                               
+                            console.log('PAssword match:'+correctPassword)
+
+                            if(result.username==req.body.username && correctPassword)
+                            {     console.log('username found')                          
                                 Found=!Found;
-                                req.session.userEntryLevel = result.entry_level
-                                var usertype ='';
+                                 /*req.session.userEntryLevel = result.entry_level
+                               var usertype ='';
                                 if(req.session.userEntryLevel==1){
                                     usertype='admin'
                                 }
                                 else{
                                     usertype='viewer'
                                 }
-                                req.session.usertype=usertype;
+                                req.session.usertype=usertype;*/
 
                             }
 
                         })
                         if(Found){
-                            
-                                req.session.username = req.body.name                            
-                                connection.query("select * from drivers where username = ?",req.session.username,function(err,results){
+                            	console.log('Driver found')
+                                req.session.username = req.body.username                            
+                                connection.query("select * from driver where username = ?",req.session.username,function(err,results){
                                     res.render('home',{
-                                        driverData :results,
+                                        driverData :results[0],
                                         username:req.session.username,
                                         userEntryLevel:req.session.userEntryLevel,
-                                        usertype:req.session.usertype
+                                        usertype:req.session.usertype,
+                                        layout:false
                                     });
+                                    console.log('DRIVER DATA:'+JSON.stringify(results))
                                 })   
                           
                              
                              
                         }else{
+                        	console.log('Driver not found')
                             res.render('login', {layout: false,correct:Found})
                            
                         }
