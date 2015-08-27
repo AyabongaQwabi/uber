@@ -5,7 +5,9 @@ body{
 	background: #D9D9DE;
 }
 
-
+.docImg{
+	max-width:70%
+}
 #options .btn-primary{
 	
 	color:white;
@@ -42,6 +44,19 @@ body{
 	overflow:scroll;
 
 }
+#postIssue{
+	width:0%;
+	height:75%;
+	border:4px solid #09091A;;
+	background: #09091A;
+	padding-top:2%;
+
+	overflow:scroll;
+	z-index: 10000;
+	position: absolute;
+
+
+}
 #profile{
 	width:30%;
 	height:75%;
@@ -70,7 +85,7 @@ body{
 	color:white;
 	background: #09091A;
 	border-radius:5px;
-	width:15%;
+	width:14.33%;
 	float:left;
 	border:1px solid black;
 	outline: none;
