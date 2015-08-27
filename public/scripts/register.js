@@ -3,7 +3,7 @@ $(document).ready(function(){
 		$(this).css({background:'white'})
 	})
 	$('#done').click(function(){
-		alert('done')
+	
 		if(!hasData("#name")){
 			popUp("Please Fill In All Fields")
 			$("#name").css({background:'tomato'})

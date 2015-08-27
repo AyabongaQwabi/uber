@@ -1,12 +1,16 @@
-function templateDocumentsSection(){
+function templateDocumentsSection(id){
+
 	console.log('function execute')
 	var docsHtml = $('#docs-html').html();
 	console.log(docsHtml)
 	var docsTemplate = Handlebars.compile(docsHtml);
 	$('#docs-button').click(function(){
-		console.log('d clicked')
-		var newhtml = docsTemplate();
-		$('#tabspace').html(newhtml)
+		$.get('/drivers/documents/:'+id,function(data){
+			console.log('d clicked')
+			var newhtml = docsTemplate({Documents:data});
+			$('#tabspace').html(newhtml)
+		})
+		
 	})
 }
 
@@ -24,14 +28,25 @@ function templateFaqsSection(){
 	})
 }
 
-function templateHistorySection(){
+function templateHistorySection(id){
+	
+
+
 	console.log('function execute')
 	var HistoryHtml = $('#history-html').html();
 	console.log(HistoryHtml)
 	var HistoryTemplate = Handlebars.compile(HistoryHtml);
 	$('#history-button').click(function(){
-		console.log('h clicked')
-		var newhtml = HistoryTemplate();
-		$('#tabspace').html(newhtml)
+		$.get('/drivers/issues/:'+id,function(data){
+			console.log('d clicked'+data)
+			var newhtml = HistoryTemplate({issues:data});
+			$('#tabspace').html(newhtml)
+		})
+		
 	})
+
 }
+
+
+
+

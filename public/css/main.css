@@ -1,0 +1,114 @@
+h1.page-header {
+    margin-top: -5px;
+}
+
+.sidebar {
+    padding-left: 0;
+}
+
+.main-container { 
+    background: #FFF;
+    padding-top: 15px;
+    margin-top: -20px;
+}
+
+.footer {
+    width: 100%;
+}  
+
+
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+
+
+
+
+
+
+
+/*Uber colors*/
+
+.panel-info>.panel-heading {
+    color: #c0c0c8;
+    background-color: #09091A;
+    border-color: #09091A;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #C0C0C8;
+    border: 1px solid #09091A;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.btn-primary {
+    color: #c0c0c8;
+    background-color: #09091A;
+    border-color: #c0c0c8;
+}
+.panel-info {
+    border-color: #09091A;
+}
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #c0c0c8;
+    border-top: 1px solid #09091A;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #c0c0c8;
+}
+
+
+
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #C0C0C8;
+    background-color: #09091A ;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+
+
+
+

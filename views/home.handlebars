@@ -25,10 +25,7 @@
 		<div class='row'>
 			<img src='images/uberlogo.png' id='logo'>
 				<div class="btn-group" id='options'>
-				  <button type="button" class="btn btn-primary">Agent Chat </button>
-				  <button type="button" class="btn btn-primary">Call Agent</button>
-				  <button type="button" class="btn btn-primary">Post an issue</button>
-				  <button type="button" class="btn btn-primary" onclick="window.location.href='/logout'">Logout</button>
+				  
 				</div>
 
 			</div>
@@ -37,10 +34,14 @@
 				<div class="btn-group" id='tabs'>
 				  <button type="button" id='faqs-button' class="btn btn-primary">FAQ </button>
 				  <button type="button" id='docs-button' class="btn btn-primary">Documents</button>
-				  <button type="button" id='history-button' class="btn btn-primary">History</button>
+				  <button type="button" id='history-button' class="btn btn-primary">Issues</button>
+				  <button type="button" class="btn btn-primary">Agent Chat </button>
+				  <button type="button" class="btn btn-primary">Call Agent</button>
+				  <button type="button" class="btn btn-primary" onclick='postissue()'>Post an issue</button>
+				  <button type="button" class="btn btn-primary" onclick="window.location.href='/logout'">Logout</button>
 				</div>
 				
-				<div class='col-md-8' id='tabspace'>
+				<div class='col-xs-7' id='tabspace'>
 
 					
 			   </div>
@@ -49,7 +50,7 @@
 
 
 
-				<div class='col-md-8' id='profile'>
+				<div class='col-xs-5' id='profile'>
 					<h2><span class='label'> Uber Profile </span></h2>
 					<br> 
 					<h6> {{driverData.name}} {{driverData.last_name}} , {{driverData.city}}</h6>
@@ -57,17 +58,35 @@
 					<h6> Vehicle: {{driverData.vehicle}} </h6>
 					<h6> ID No: {{driverData.id_number}}</h6>
 					<h6> Licence No: {{driverData.license_number}}</h6>					
-					<h6> Rating :<div class="rating">
-					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-					</div></h6>
+					
 					<br>
-					<h5><span class='label'> No issues in progress </span></h5>
+					<h5><span class='label'> Issues in Progress</span></h5>
+					{{#each issues}}
+						{{#status}}
+						<h6 class='inprogress'>&nbsp&nbsp&nbsp{{issue_name}} </h6>
+						{{/status}}
+						
+						
+						{{else}}
+						<h5><span class='label'> No issues in progress </span></h5>
+					{{/each}}
 					<br>
-					<h5><span class='label'> All documentation complete </span></h5>
+					<h5><span class='label'> Check Documentation tab</span></h5>
 
 
 				</div>
-
+				<div clall='col-md-8' id='postIssue'>
+				<form action='driver/issue/post' method='POST'>
+				<h6> Issue Name </h6><input type='text' id='issue_name' name='issuename'
+				<br>
+					<div class="form-group">
+					  <h6> Describe it </h6>
+					  <textarea class="form-control" rows="7" id="issue_description"></textarea>
+					</div>
+				</form>
+				<button type="button" id='exit-issue' class="btn btn-primary" onclick='closeissue();'>Exit</button>
+				<button type="button" id='post-issue' class="btn btn-primary" onclick='sendissue();'>Post</button>
+				</div>
 		</div>
 
 
@@ -97,42 +116,45 @@
 	</script>
 
 	<script type='text/x-handlebars-template' id ='docs-html'>
-					<h6> Documents </h6>
+					<h6> Documents <button type="button" id='exit-issue' class="btn btn-primary" onclick=''>Upload</button></h6>
+
 					<div class="panel-group" id="accordion">
-					 	{{#each Documents}}
+					 	\{{#each Documents}}
 				        <div class="panel panel-default">
 				            <div class="panel-heading">
 				                <h4 class="panel-title">
-				                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{Document}}</a>
+				                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">\{{type}}</a>
 				                </h4>
 				            </div>
 				            <div id="collapse" class="panel-collapse collapse in">
 				                <div class="panel-body">
-				                    <p>{{info}}<a href="{{link}}" target="_blank">view...</a></p>
+				                    <img src="\{{url}}" class='docImg'>
 				                </div>
 				            </div>
 				        </div>
-				       {{/each}}
+				       \{{/each}}
 					</div>
 	</script>
 
 	<script type='text/x-handlebars-template' id ='history-html'>
-					<h6> Driver history </h6>
+					<h6> Issue history </h6>
 					<div class="panel-group" id="accordion">
-					 	{{#each Documents}}
+					 	\{{#each issues}}
 				        <div class="panel panel-default">
 				            <div class="panel-heading">
 				                <h4 class="panel-title">
-				                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{Document}}</a>
+				                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">\{{issue_name}}</a>
 				                </h4>
+				                <h6> Status \{{status}} </h6>
 				            </div>
 				            <div id="collapse" class="panel-collapse collapse in">
 				                <div class="panel-body">
-				                    <p>{{info}}<a href="{{link}}" target="_blank">view...</a></p>
+				                    <p>\{{issue}}</a></p>
 				                </div>
 				            </div>
+				            
 				        </div>
-				       {{/each}}
+				       \{{/each}}
 					</div>
 	</script>
 
@@ -144,9 +166,12 @@
 	<script type='text/javascript' src='scripts/templating.js'>
 	</script>
 	<script>
-		templateDocumentsSection();
+	    var user = {{driverData.id}}
+		templateDocumentsSection(user);
 		templateFaqsSection();
-		templateHistorySection();
+		templateHistorySection(user);
 	</script
+	
+
 </html>
 

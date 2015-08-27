@@ -3,7 +3,7 @@ $(document).ready(function(){
 		$(this).css({padding:'1.5%',background:'lightgrey'})
 	})
 	$('#done').click(function(){
-		alert('done')
+		
 		if(!validate("#username")){}
 		else if(!validate("#pass")){}		
 		else{$('form').submit()}

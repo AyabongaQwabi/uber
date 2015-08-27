@@ -1,0 +1,55 @@
+body{
+	background-color: #09091A;
+    padding:10%;
+}
+
+img {
+    max-width: 60%;
+    max-height: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.login-heading{
+	text-align: center;
+	font-family: helvetica;
+	font-size: 20px;
+}
+
+.form-landing {
+    width: 250px;
+    margin: 0 auto;
+    color: #1FBAD6;
+    overflow: auto;
+
+   }
+
+  .driver_btn{
+    	color: #C0C0C8;
+    	background-color:#09091A;
+        border-radius:10px;
+    	margin: 0 auto;
+    	width: 300px;
+    	height: 60px;
+          margin-left:8%;
+    }
+    .agent_btn{
+    	color: #09091A;
+    	background-color: #1FBAD6;
+        border-radius:10px;
+    	margin: 0 auto;
+    	margin-top: 1%;
+    	width: 300px;
+    	height: 60px;
+          margin-left:8%;
+    }
+#main{
+    margin-left: 30%;
+    background:white;
+    box-shadow: 1px 1px 10px 3px #222231;
+    padding:4%;
+    width:34em;
+    height:180%;
+    border-radius: 20px;
+}
