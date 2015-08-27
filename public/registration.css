@@ -1,0 +1,28 @@
+body{
+	background-color: #C0C0C8; 
+}
+
+
+img {
+    max-width: 20%;
+    max-height: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.form-horizontal {
+}
+
+.control-group {
+    font-family: helvetica;
+    text-align: center;
+}
+
+.legend {
+    text-align: center;
+}
+
+.btn {
+    background-color: #1FBAD6;
+}
