@@ -1,0 +1,48 @@
+body {
+    background: #C0C0C8 !important;
+}
+
+img {
+    max-width: 20%;
+    max-height: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.center-block {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #09091A;
+    color: #1FBAD6;
+    .form-signin-heading,
+    .checkbox {
+        margin-bottom: 30px;
+    }
+    .checkbox {
+        font-weight: normal;
+        color: #C0C0C8;
+    }
+    .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+    }
+    input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    input[type="password"] {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
