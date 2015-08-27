@@ -15,8 +15,10 @@
 <body>
     <div class="center-block">
     <img src="images/uberlogo.png" alt="">
+    
         <form class="form-horizontal" action='/register' method="POST">
-            <fieldset>
+        <div class="row">
+                <div class="col-md-4">
                 <div class="control-group">
                     <!-- Name -->
                     <label class="control-label" for="name">Name</label>
@@ -30,6 +32,8 @@
                     <div class="controls">
                         <input type="text" id="surname" name="surname" placeholder="" class="input-xlarge">
                     </div>
+                    </div>
+
                       <div class="control-group">
                         <!-- Username -->
                         <label class="control-label" for="username">Username</label>
@@ -39,15 +43,19 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <!-- Name -->
+                        <!-- ID Number -->
                         <label class="control-label" for="id_no">ID Number</label>
                         <div class="controls">
                             <input type="text" id="id_no" name="id_no" placeholder="" class="input-xlarge">
                             <p class="help-block">Please provide your ID number</p>
                         </div>
                     </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+
                     <div class="control-group">
-                        <!-- Name -->
+                        <!-- Licence Number -->
                         <label class="control-label" for="licence">Licence Number</label>
                         <div class="controls">
                             <input type="text" id="licence" name="licence" placeholder="" class="input-xlarge">
@@ -56,7 +64,7 @@
                     </div>
                   
                     <div class="control-group">
-                        <!-- Name -->
+                        <!-- City -->
                         <label class="control-label" for="City">City</label>
                         <div class="controls">
                             <input type="text" id="city" name="city" placeholder="" class="input-xlarge">
@@ -64,13 +72,16 @@
                         </div>
                     </div>
                      <div class="control-group">
-                        <!-- Name -->
+                        <!-- Vehicle -->
                         <label class="control-label" for="vehicle">Vehicle</label>
                         <div class="controls">
                             <input type="text" id="vehicle" name="vehicle" placeholder="" class="input-xlarge">
                             <p class="help-block">type of car you drive</p>
                         </div>
                     </div>
+                    </div>
+
+                    <div class="col-md-4">
                     <div class="control-group">
                         <!-- E-mail -->
                         <label class="control-label" for="email">E-mail</label>
@@ -96,6 +107,9 @@
                         </div>
                     </div>
                     
+             </div>
+        </div>
+
                     <div class="control-group">
                         <!-- Button -->
                         <div class="controls">
@@ -103,17 +117,21 @@
                         </div>
                     </div>
                     
-            </fieldset>
-        </form>
-        <div class="control-group">
+
+
+                <div class="control-group">
                         <!-- Button -->
                         <div class="controls">
                             <button class="btn btn-default" id='cancel'>Cancel</button>
                             <button class="btn btn-default" id='done'>Register</button>
                         </div>
                     </div>
+
+                    
+    
+    </form>
+   
         <script src="scripts/register.js"></script>
-        </div>
 </body>
 
 </html>

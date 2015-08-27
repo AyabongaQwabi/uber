@@ -16,7 +16,7 @@
             var dbOptions = {
                 host : "localhost",
                 user : "root",
-                password : "theaya5379",
+                password : "hackathon2015",
                 port : 3306,
                 database : "uber"
 

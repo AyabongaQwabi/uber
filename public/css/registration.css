@@ -11,12 +11,22 @@ img {
     margin-right: auto
 }
 
+.row{
+    margin-top: 5%;
+}
+
 .form-horizontal {
+    border-style: solid;
+    border-color: #1FBAD6;
+    border-width: 1px;
+    margin-top: 5%;
+    background-color: #09091A;
 }
 
 .control-group {
     font-family: helvetica;
     text-align: center;
+    color: #1FBAD6;
 }
 
 .legend {
@@ -25,4 +35,7 @@ img {
 
 .btn {
     background-color: #1FBAD6;
+}
+
+.help-block{
 }
