@@ -66,23 +66,24 @@
             app.post('/register',function(req,res){
                     var connection = mysql.createConnection(dbOptions)
                     console.log("REGISTER -->"+JSON.stringify(req.body))
-                    connection.query('select * from drivers',function(err,results){
+                    connection.query('select * from driver',function(err,results){
                         if(err){console.log("ERR : "+err)}
                         if(results.length==0){
                                     var dat={}
                                     dat['username'] = req.body.username
-                                    dat['name'] = req.body.username
-                                    dat['last_name'] = req.body.username
-                                    dat['id_no'] = req.body.username
-                                    dat['license_no'] = req.body.username
+                                    dat['name'] = req.body.name
+                                    dat['email'] =req.body.email
+                                    dat['last_name'] = req.body.surname
+                                    dat['id_no'] = req.body.id_no
+                                    dat['license_no'] = req.body.licence
                                     dat['city'] = req.body.username
                                     dat['vehicle'] = req.body.username
                                     console.log('encrypting..')
-                                    var hashed = encrypt.hashSync(req.body.firstpassword,11)
+                                    var hashed = encrypt.hashSync(req.body.password_confirm,11)
                                     dat['password']= hashed;
-                                    dat['entry_level']=1;
+                                  
                                     console.log("original: "+req.body.firstpassword+" HASH:"+hashed)
-                                    connection.query('insert into users set ?',dat,function(err,results){
+                                    connection.query('insert into driver set ?',dat,function(err,results){
                                             console.log("ERR : "+err)
                                             res.redirect('/login')
                                     })
@@ -93,6 +94,7 @@
                                 results.forEach(function(result){
                                     if(result.username.toLowerCase()==req.body.username.toLowerCase())
                                     {
+                                    	console.log('username exists')
                                         console.log(JSON.stringify(result))
                                         nameExist=!nameExist
                                         res.sendfile('public/redirect.html')
@@ -103,11 +105,19 @@
                                 if(!nameExist){
                                     var dat={}
                                     dat['username'] = req.body.username
+                                    dat['name'] = req.body.name
+                                    dat['email'] =req.body.email
+                                    dat['last_name'] = req.body.surname
+                                    dat['id_no'] = req.body.id_no
+                                    dat['license_no'] = req.body.licence
+                                    dat['city'] = req.body.username
+                                    dat['vehicle'] = req.body.username
                                     console.log('encrypting..')
-                                    var hashed = encrypt.hashSync(req.body.firstpassword,11)
+                                    var hashed = encrypt.hashSync(req.body.password_confirm,11)
                                     dat['password']= hashed;
+                                  
                                     console.log("original: "+req.body.firstpassword+" HASH:"+hashed)
-                                    connection.query('insert into users set ?',dat,function(err,results){
+                                    connection.query('insert into driver set ?',dat,function(err,results){
                                             console.log("ERR : "+err)
                                             res.redirect('/login')
                                     })
