@@ -1,3 +1,3 @@
-INSERT INTO agent (name,last_name,id_number,employee_number) VALUES ("Nana","Mde",9100004005080, "EMP012");
-INSERT INTO agent (name,last_name,id_number,employee_number) VALUES ("Onele","Kewana",9300000005083, "EMP015");
-INSERT INTO agent (name,last_name,id_number,employee_number) VALUES ("Mabra","Nteyi",9000020005082, "EMP234");
+INSERT INTO agent (name,last_name,id_number,employee_number,user_name,password) VALUES ("Nana","Mde",9100004005080, "EMP012","NANA12","MDEKADUDA");
+INSERT INTO agent (name,last_name,id_number,employee_number,user_name,password) VALUES ("Onele","Kewana",9300000005083, "EMP015","NeleK","bhanqo26");
+INSERT INTO agent (name,last_name,id_number,employee_number,user_name,password) VALUES ("Mabra","Nteyi",9000020005082, "EMP234","Mabra11","amilawakhe");

@@ -20,3 +20,4 @@ ADD cell_no int (14) AFTER last_name;
 
 ALTER TABLE issues
 ADD issue_name varchar(200);
+
