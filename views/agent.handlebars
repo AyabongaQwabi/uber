@@ -7,7 +7,8 @@
 	  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.material-design/0.3.0/css/material-fullpalette.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css" />
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="scripts/handlebars-v3.0.3.js"></script>
 
 </head>
 <body>
@@ -57,27 +58,21 @@
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-pills nav-stacked">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Drivers</a></li>
-				<li><a href="#">Pending</a></li>
-				<li><a href="#">Issues</a></li>
+				<li><a href="#" id='drivers-button'>Drivers</a></li>
+				<li><a href="#" id='faqs-button'>FAQs</a></li>
+				<li><a href="#" id='issues-button'>Issues</a></li>
 				
 			</ul>
 		</div>
-		<div class="col-md-10 content">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Dashboard
-                </div>
-                <div class="panel-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    			    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </div>
-            </div>
+		<div class="col-md-10 content" id='mainText'>
+			<h1> Agent Dashboard</h1>
+            <h4> View and manage drivers and issues</h4>
 		</div>
+
+
+
+
+
 		<footer class="pull-left footer">
 			<p class="col-md-12">
 				<hr class="divider">
@@ -86,5 +81,90 @@
 		</footer>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.js"></script>
+
+	<script type='text/x-handlebars-template' id ='faqs-html'>
+					<h6> Frequently Asked Questions</h6>
+					
+					<button type="button" class="btn btn-default">Add New </button>
+					<br>
+					<div class="panel-group" id="accordion">
+					 	{{#each Questions}}
+				        <div class="panel panel-default">
+				            <div class="panel-heading">
+				                <h4 class="panel-title">
+				                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{question}}</a><button type="button" class="btn btn-default">Edit </button>
+					<br>
+				                </h4>
+				            </div>
+				            <div id="collapse" class="panel-collapse collapse in">
+				                <div class="panel-body">
+				                    <p>{{solution}} 
+				                </div>
+				            </div>
+				        </div>
+				       {{/each}}
+					</div>
+	</script>
+
+	<script type='text/x-handlebars-template' id ='docs-html'>
+					<h6> Uber Drivers</h6>
+					<button type="button" class="btn btn-default">Add New </button>
+					<br>
+					<div class="panel-group" id="accordion">
+					 	{{#each drivers}}
+				        <div class="panel panel-default">
+				            <div class="panel-heading">
+				                <h4 class="panel-title">
+				                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{name}}</a>
+				                </h4>
+				            </div>
+				            <div id="collapse" class="panel-collapse collapse in">
+				                <div class="panel-body">
+				                   Lastname : <h6>{{last_name}}</h6><br>
+				                   Licence Number :<h6>{{license_number}}</h6><br>
+				                   ID Number: <h6>{{id_number}}</h6><br>
+				                   Email Address: <h6>{{email_address}}</h6><br>
+				                   Vehicle: <h6>{{vehicle}}</h6><br>
+				                   City :<h6>{{city}}</h6><br>
+				                </div>
+				            </div>
+				        </div>
+				       {{/each}}
+					</div>
+	</script>
+
+	<script type='text/x-handlebars-template' id ='history-html'>
+					<h6> Issue history </h6>
+					<div class="panel-group" id="accordion">
+				 	{{#each issues}}
+				        <div class="panel panel-default">
+				            <div class="panel-heading">
+				                <h4 class="panel-title">
+				                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{issue_name}}</a>
+				                </h4>
+				                <h6> Status {{status}} </h6>
+				            </div>
+				            <div id="collapse" class="panel-collapse collapse in">
+				                <div class="panel-body">
+				                    <p>{{issue}}</a></p>
+				                    <h4> Post a Response </h4>
+				                    <input type='textarea' id='response'><button type="button" class="btn btn-default">Post</button>
+					<br>
+				                </div>
+				            </div>
+				            
+				        </div>
+				       {{/each}}
+					</div>
+	</script>
+
+
+	<script src='scripts/agenttemplating.js'></script>
+	<script>
+	   // var user = {{driverData.id}}
+		templateDocumentsSection();
+		templateFaqsSection();
+		templateHistorySection();
+	</script
 </body>
 </html>
