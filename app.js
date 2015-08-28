@@ -34,7 +34,6 @@
 
 
 
-
             app.get('/',function(req,res){
             	    console.log("\n\n----------------------------get /---------------------------------")
                     if(req.session.username){
@@ -59,8 +58,104 @@
 			app.get('/landing',function(req,res){
 					res.render('landingPage',{layout:false})
 			})
+
+
+
+
+
+
+
+
 			app.get('/agentlogin',function(req,res){
 					res.render('agentlogin',{layout:false})
+			})
+			app.post('/agentlogin',function(req,res){
+				 console.log("\n\n----------------------------POST /agentlogin---------------------------------")
+                    console.log('Client posts to agent login')
+                   var connection = mysql.createConnection(dbOptions)
+                    connection.query('select * from agent',function(err,results){
+                        console.log("ERR : "+err)
+                        var Found=false;
+                        console.log("RESULTS:"+results);
+                        console.log("LENGTH :"+results.length+'\n')
+                        results.forEach(function(result){                             
+                           
+                            var hashedPassword =result.password;
+                            var clientPassword =req.body.password;
+
+                            var correctPassword = (hashedPassword == clientPassword)
+                            console.log('PAssword match:'+correctPassword)
+
+                            if(result.username==req.body.username && correctPassword)
+                            {     console.log('username found')                          
+                                Found=!Found;
+                                 /*req.session.userEntryLevel = result.entry_level
+                               var usertype ='';
+                                if(req.session.userEntryLevel==1){
+                                    usertype='admin'
+                                }
+                                else{
+                                    usertype='viewer'
+                                }
+                                req.session.usertype=usertype;*/
+
+                            }
+
+                        })
+                        if(Found){
+                            	console.log('Agent found')
+                                req.session.username = req.body.username                            
+                                connection.query("select * from agent where username = ?",req.session.username,function(err,agents){
+                                   
+                                    var agentinfo =agents[0]
+	                        		connection.query('select * from issues ',function(err,issues){
+										issues.forEach(function(result){
+												if(result.status==1){
+													result['status']=true;
+												}
+												else{
+													result['status']=false;
+												}
+											})
+										if(err){console.log('ERR issues for agents:'+err)}
+										var issues=issues	
+										console.log('ISSUES :'+JSON.stringify(issues))	
+										connection.query('select * from driver ',function(err,drivers){
+											connection.query('select * from question ',function(err,results){
+											
+
+											if(err){console.log('ERR Driver docs:'+err)}
+											console.log('DOCS:'+JSON.stringify(results))	
+											res.render('agent',{
+												issues:issues,
+												drivers:drivers,
+												Questions:results,
+		                                    	layout:false,
+		                                        driverData :agentinfo,
+		                                        username:req.session.username,
+		                                        userEntryLevel:req.session.userEntryLevel,
+		                                        usertype:req.session.usertype
+		                                    });
+
+											console.log("QS:"+JSON.stringify(results))
+										})
+									})
+                                    
+                                })
+							})
+                                    
+                                   
+                          
+                             
+                             
+                        }else{
+                        	console.log('Agent not found')
+                            res.render('login', {layout: false,correct:Found})
+                           
+                        }
+                        
+                    
+                })		
 			})
 			app.get('/home',function(req,res){
 					console.log("\n\n----------------------------get /home---------------------------------")
@@ -228,6 +323,7 @@
 
 
 		   })
+
            app.post('/login',function(req,res){
            	 console.log("\n\n----------------------------POST /login---------------------------------")
                     console.log('Client posts to login')
