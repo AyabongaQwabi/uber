@@ -1,25 +1,24 @@
 body {
-    background: #C0C0C8 !important;
+    background:url('./../images/blurred.jpg') center center no-repeat;
 }
-
+.login_logo{
+  padding:5%;
+}
 img {
-    max-width: 20%;
-    max-height: 30%;
+
     display: block;
     margin-left: auto;
     margin-right: auto
 }
 
-.center-block {
-    margin-top: 80px;
-    margin-bottom: 80px;
+.center-block{
+  margin-top: 20%;
 }
 
 .form-signin {
-    max-width: 380px;
     padding: 15px 35px 45px;
     margin: 0 auto;
-    background-color: #09091A;
+    background-color: rgba(9, 9, 26, .6);
     color: #1FBAD6;
     .form-signin-heading,
     .checkbox {
@@ -45,4 +44,8 @@ img {
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
+}
+
+@media max-width(480){
+  .form-signin{background: none;}
 }
