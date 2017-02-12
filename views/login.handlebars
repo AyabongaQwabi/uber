@@ -1,8 +1,8 @@
 <html>
-	
+
 	<head>
 	<title> U B E R </title>
-	
+
 	<link rel='stylesheet' type='text/css' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 	<script type='text/javascript' src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -15,18 +15,20 @@
 
 
 
-	
+
 
 
 	<div class='container'>
 		<div class='row'>
 			<div class='col-md-8 col-xs-12' id='logincontent'>
-				<img src='images/uberlogo.jpg'>
+				<div class='col-xs-12 login_logo'>
+					<img src='images/uberlogo.jpg'>
+				</div>
 				<div id='logindata'>
 					<form action='/login' method='POST'>
 					<h4><span class='label'>Username</span></h4>
-			
-					<input type='text' id='username' name='username' placeholder='your username here'>
+
+					<input type='text' class='form-control' id='username' name='username' placeholder='your username here'>
 					<br>
 					<h4><span class='label'>Password</span></h4>
 					<input type='password' id='password' name='password' placeholder='your password here'>
@@ -41,11 +43,10 @@
 		</div>
 	</div>
 
-	
+
 
 
 
 
 	</body>
 </html>
-
